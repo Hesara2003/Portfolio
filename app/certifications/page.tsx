@@ -2,7 +2,7 @@
 
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Award, ExternalLink, Search, X } from 'lucide-react';
+import { Award, ExternalLink, Mic, Search, X } from 'lucide-react';
 import Navbar from '../../components/Navbar';
 import Footer from '../../components/Footer';
 import Image from 'next/image';
@@ -16,6 +16,12 @@ import PromptEng from '../../img/Certificates/Cloud/Prompt Eng.png';
 import TechEssential from '../../img/Certificates/Cloud/Technical Essentials.png';
 import SliitLogo from '../../img/Sliit-logo.png';
 import JetsonNano from '../../img/Certificates/AI ML/JetsonNano.png';
+import Microsoft from '../../img/microsoft-logo.jpg';
+import AzureApp from '../../img/Certificates/Cloud/azure-app.png';
+import azurecv from '../../img/Certificates/Cloud/azure-cv.png';
+import azurearch from '../../img/Certificates/Cloud/azure-arch.png';
+import azurecc from '../../img/Certificates/Cloud/azure-cc.png';
+import azureca from '../../img/Certificates/Cloud/azure-ca.png';
 
 interface Cert {
   title: string;
@@ -129,55 +135,55 @@ const CertificationsPage = () => {
       title: "Host a web application with Azure App Service",
       issuer: "Microsoft",
       date: "2024",
-      logo: AwsLogo,
+      logo: Microsoft,
       credential: "https://learn.microsoft.com/en-us/users/pereramph-4397/achievements/habpspg8?ref=https%3A%2F%2Fwww.linkedin.com%2F",
       category: "Cloud",
       bgImage: "/img/aws-bg.jpg",
-      certificateImage: GettingStarted
+      certificateImage: AzureApp
     },
 
     {
       title: "Microsoft Azure AI Fundamentals:Computer Vision",
       issuer: "Microsoft",
       date: "2024",
-      logo: AwsLogo,
-      credential: "https://www.linkedin.com/in/hesaraperera/details/certifications/",
+      logo: Microsoft,
+      credential: "https://learn.microsoft.com/en-us/users/pereramph-4397/achievements/p5fjd3r4?ref=https%3A%2F%2Fwww.linkedin.com%2F",
       category: "Cloud",
       bgImage: "/img/aws-bg.jpg",
-      certificateImage: GettingStarted
+      certificateImage: azurecv
     },
 
     {
-      title: "Microsoft Azure AI Fundamentals:Describe Azure architecture and services",
+      title: "Microsoft Azure AI Fundamentals: Describe Azure architecture and services",
       issuer: "Microsoft",
       date: "2024",
-      logo: AwsLogo,
-      credential: "https://www.linkedin.com/in/hesaraperera/details/certifications/",
+      logo: Microsoft,
+      credential: "https://learn.microsoft.com/en-gb/users/pereramph-4397/achievements/habplwl8?ref=https%3A%2F%2Fwww.linkedin.com%2F",
       category: "Cloud",
       bgImage: "/img/aws-bg.jpg",
-      certificateImage: GettingStarted
+      certificateImage: azurearch
     },
 
     {
-      title: "Microsoft Azure AI Fundamentals:Describe cloud concepts",
+      title: "Microsoft Azure AI Fundamentals: Describe cloud concepts",
       issuer: "Microsoft",
       date: "2024",
-      logo: AwsLogo,
-      credential: "https://www.linkedin.com/in/hesaraperera/details/certifications/",
+      logo: Microsoft,
+      credential: "https://learn.microsoft.com/en-us/users/pereramph-4397/achievements/87d4suvw?ref=https%3A%2F%2Fwww.linkedin.com%2F",
       category: "Cloud",
       bgImage: "/img/aws-bg.jpg",
-      certificateImage: GettingStarted
+      certificateImage: azurecc
     },
 
     {
       title: "Microsoft Cloud Adoption Framework for Azure",
       issuer: "Microsoft",
       date: "2024",
-      logo: AwsLogo,
-      credential: "https://www.linkedin.com/in/hesaraperera/details/certifications/",
+      logo: Microsoft,
+      credential: "https://learn.microsoft.com/en-gb/users/pereramph-4397/achievements/3rke57zh?ref=https%3A%2F%2Fwww.linkedin.com%2F",
       category: "Cloud",
       bgImage: "/img/aws-bg.jpg",
-      certificateImage: GettingStarted
+      certificateImage: azureca
     },
 
     {
@@ -237,17 +243,6 @@ const CertificationsPage = () => {
       credential: "https://learn.nvidia.com/certificates?id=gS5RuS08SMaEGj9xj_pudQ#",
       category: "AI/ML",
       certificateImage: JetsonNano
-    },
-
-    {
-      title: "Microsoft Azure AI Fundamentals:Computer Vision",
-      issuer: "Microsoft",
-      date: "2024",
-      logo: AwsLogo,
-      credential: "https://www.linkedin.com/in/hesaraperera/details/certifications/",
-      category: "AI/ML",
-      bgImage: "/img/aws-bg.jpg",
-      certificateImage: GettingStarted
     },
 
     {
