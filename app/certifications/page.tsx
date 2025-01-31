@@ -26,6 +26,14 @@ import stReg from '../../img/Certificates/Ai ML/st-reg.png';
 import stanford from '../../img/stanford-logo.png';
 import Stage1 from '../../img/Certificates/AI ML/Stage01.png';
 import Stage2 from '../../img/Certificates/AI ML/Stage02.png';
+import Nvidea from '../../img/Nvidea-logo.jpg';
+import msAi from '../../img/Certificates/AI ML/ms-ai.png';
+import linkedin from '../../img/linkedin-logo.png';
+import ethicsAi from '../../img/Certificates/AI ML/ethics-ai.png';
+import introAi from '../../img/Certificates/AI ML/intro-ai.png';
+import ghAdvanced from '../../img/Certificates/Version Control/gh-advanced.png';
+import ghFoundations from '../../img/Certificates/Version Control/gh-foundations.png';
+import GitHub from '../../img/github-logo.png';
 
 interface Cert {
   title: string;
@@ -38,7 +46,7 @@ interface Cert {
   certificateImage?: string;
 }
 
-const CertModal = ({ cert, isOpen, onClose }: { cert: Cert; isOpen: boolean; onClose: () => void }) => (
+const CertModal = ({ cert, isOpen, onClose }: { cert: Cert | null; isOpen: boolean; onClose: () => void }) => (
   <AnimatePresence>
     {isOpen && (
       <motion.div
@@ -56,8 +64,8 @@ const CertModal = ({ cert, isOpen, onClose }: { cert: Cert; isOpen: boolean; onC
           className="relative w-full max-w-4xl bg-gray-900 rounded-xl overflow-hidden"
         >
           <Image
-            src={cert.certificateImage || '/default-cert.jpg'}
-            alt={cert.title}
+            src={cert?.certificateImage || '/default-cert.jpg'}
+            alt={cert?.title || 'Certificate'}
             width={1200}
             height={800}
             className="w-full h-auto"
@@ -88,7 +96,7 @@ const CertificationsPage = () => {
     certificateImage?: string;
   }>(null);
 
-  const categories = ['All', 'Cloud', 'Development', 'Design', 'AI/ML'];
+  const categories = ['All', 'Cloud', 'Development', 'Design', 'AI/ML','Version Control', 'Cybersecurity'];
 
   const certifications = [
     {
@@ -233,7 +241,7 @@ const CertificationsPage = () => {
       title: "Getting Started with AI on Jetson Nano",
       issuer: "NVIDIA",
       date: "2025",
-      logo: "/coursera-logo.png",
+      logo: Nvidea,
       credential: "https://learn.nvidia.com/certificates?id=gS5RuS08SMaEGj9xj_pudQ#",
       category: "AI/ML",
       certificateImage: JetsonNano
@@ -243,30 +251,50 @@ const CertificationsPage = () => {
       title: "Career Essentials in Genereative AI by Microsoft",
       issuer: "Microsoft",
       date: "2024",
-      logo: "/coursera-logo.png",
-      credential: "https://learn.nvidia.com/certificates?id=gS5RuS08SMaEGj9xj_pudQ#",
+      logo: Microsoft,
+      credential: "https://www.linkedin.com/learning/certificates/f9e9a3c3ff775a28dc2d66bd38935d671c240cb26323611c6080cad832ca20e1",
       category: "AI/ML",
-      certificateImage: JetsonNano
+      certificateImage: msAi
     },
 
     {
       title: "Ethics in the Age of Generative AI",
       issuer: "LinkedIn Learning",
       date: "2024",
-      logo: "/coursera-logo.png",
-      credential: "https://learn.nvidia.com/certificates?id=gS5RuS08SMaEGj9xj_pudQ#",
+      logo: linkedin,
+      credential: "https://www.linkedin.com/learning/certificates/d8fae848ae191632e713158c69aa0fa10f0b224c9a83ec9c54bdb6953b63d218?lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base_certifications_details%3B2MeJLNZgQMuNCZBAGDvuwA%3D%3D",
       category: "AI/ML",
-      certificateImage: JetsonNano
+      certificateImage: ethicsAi
     },
 
     {
       title: "Introduction to Artificial Intelligence",
       issuer: "LinkedIn Learning",
       date: "2024",
-      logo: "/coursera-logo.png",
-      credential: "https://learn.nvidia.com/certificates?id=gS5RuS08SMaEGj9xj_pudQ#",
+      logo: linkedin,
+      credential: "https://www.linkedin.com/learning/certificates/063239764cdcf0953fcc889bd0c309b38b098305043fdbe98e397299f93cc8e0?lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base_certifications_details%3B2MeJLNZgQMuNCZBAGDvuwA%3D%3D",
       category: "AI/ML",
-      certificateImage: JetsonNano
+      certificateImage: introAi
+    },
+
+    {
+      title: "GitHub Advanced Security",
+      issuer: "GitHub",
+      date: "2025",
+      logo: GitHub,
+      credential: "https://learn.microsoft.com/en-us/users/pereramph-4397/achievements/uyknx6n3?ref=https%3A%2F%2Fwww.linkedin.com%2F",
+      category: "Version Control",
+      certificateImage: ghAdvanced
+    },
+
+    {
+      title: "GitHub Foundations",
+      issuer: "GitHub",
+      date: "2024",
+      logo: GitHub,
+      credential: "https://learn.microsoft.com/en-us/users/pereramph-4397/achievements/dcalghsj?ref=https%3A%2F%2Fwww.linkedin.com%2F",
+      category: "Version Control",
+      certificateImage: ghFoundations
     },
 
 
