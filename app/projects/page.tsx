@@ -26,7 +26,7 @@ interface Project {
   icon: JSX.Element;
   link: string;
   github: string;
-  image: StaticImageData; // Ensure this matches the type used in the data
+  image: StaticImageData | string; // Ensure this matches the type used in the data
   features: string[];
 }
 
@@ -73,7 +73,7 @@ const ProjectsPage = () => {
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-20">
           {projects.map((project, index) => (
-            <ProjectCard key={project.title} project={project} index={index} onView={setSelectedProject} />
+            <ProjectCard key={project.title} project={project} index={index} onView={(project) => setSelectedProject(project)} />
           ))}
         </div>
 

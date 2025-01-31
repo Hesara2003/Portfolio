@@ -21,7 +21,7 @@ interface Project {
 
   github: string;
 
-  image: StaticImageData;
+  image: StaticImageData | string;
 
   features: string[];
 
