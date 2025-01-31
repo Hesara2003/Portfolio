@@ -6,7 +6,11 @@ import Footer from '../../components/Footer';
 import { ExternalLink, Github, Code, Palette, Database, Globe, Star, Users, ShoppingCart, CheckCircle } from 'lucide-react';
 import { motion, useMotionValue, useSpring, useTransform } from 'framer-motion';
 import NextGen from '../../img/Next-Gen Web.png'
+import Portfolio from '../../img/Portfolio.png'
+import LandMineSystem from '../../img/Land Mine.png'
+import GraphicDesign from '../../img/Graphic Design.png'
 import Image from 'next/image';
+import ProjectModal from '../../components/ProjectModal';
 
 const GridBackground = () => (
   <div className="absolute inset-0 overflow-hidden pointer-events-none">
@@ -25,7 +29,7 @@ interface Project {
   features: string[];
 }
 
-const ProjectCard = ({ project, index }: { project: Project, index: number }) => {
+const ProjectCard = ({ project, index, onView }: { project: Project, index: number, onView: (project: Project) => void }) => {
   return (
     <motion.div
       whileHover={{ scale: 1.02 }}
@@ -98,6 +102,14 @@ const ProjectCard = ({ project, index }: { project: Project, index: number }) =>
             </div>
           ))}
         </div>
+
+        <button
+          onClick={() => onView(project)}
+          className="mt-4 w-full py-2 px-4 rounded-lg bg-purple-500 hover:bg-purple-600 transition-colors flex items-center justify-center space-x-2"
+        >
+          <span>View Details</span>
+          <ExternalLink className="w-4 h-4" />
+        </button>
       </div>
     </motion.div>
   );
@@ -106,6 +118,7 @@ const ProjectCard = ({ project, index }: { project: Project, index: number }) =>
 const ProjectsPage = () => {
   const [hoveredProject, setHoveredProject] = useState<number | null>(null);
   const [hoveredTech, setHoveredTech] = useState<string | null>(null);
+  const [selectedProject, setSelectedProject] = useState<Project | null>(null);
 
   const projects = [
     {
@@ -113,54 +126,51 @@ const ProjectsPage = () => {
       description: "Buld and deploy a modern website using Next.js, Tailwind CSS, GSAP and Framer Motion to create stunning animations and interactive UI elements.",
       tags: ["Next.js", "Tailwind CSS", "GSAP", "Framer Motion"],
       icon: <Palette className="w-6 h-6" />,
-      link: "https://ecommerce.demo.com",
-      github: "https://github.com/yourusername/ecommerce",
+      link: "https://animated-website-7cf87.web.app/",
+      github: "https://github.com/Hesara2003/Animated-Website",
       image: NextGen,
       features: [
-        "User authentication and profiles",
-        "Payment processing with Stripe",
-        "Real-time inventory tracking",
-        "Admin dashboard"
+        "Interactive UI",
+        "Stunning animations",
+        "Responsive design"
       ]
     },
     {
-      title: "Social Media Dashboard",
-      description: "A comprehensive social media management tool allowing users to schedule posts, track engagement, and analyze performance across multiple platforms.",
-      tags: ["React", "Redux", "Node.js", "PostgreSQL"],
+      title: "Customized Animated Portfolio Website",
+      description: "A customized portfolio website built with React and Framer Motion to showcase projects and skills with 3D animations and interactive elements.",
+      tags: ["React", "Framer Motion", "TypeScript", "Tailwind CSS"],
       icon: <Users className="w-6 h-6" />,
-      link: "https://social-dashboard.demo.com",
-      github: "https://github.com/yourusername/social-dashboard",
-      image: "/api/placeholder/600/400",
+      link: "https://hesara-portfolio.web.app/",
+      github: "https://github.com/Hesara2003",
+      image: Portfolio,
       features: [
-        "Multi-platform integration",
-        "Analytics dashboard",
-        "Post scheduling",
-        "Engagement tracking"
+        "3D animations",
+        "Interactive UI",
+        "Project showcase"
       ]
     },
     {
-      title: "AI Content Generator",
-      description: "An AI-powered content generation tool that helps create blog posts, social media content, and marketing copy using advanced language models.",
-      tags: ["Python", "TensorFlow", "React", "FastAPI"],
+      title: "Autonomous Landmine Detection System Using Magnetic Field",
+      description: "Developed an autonomous landmine detection system using Arduino, magnetic field sensors and algorithms to detect landmines in real-time.",
+      tags: ["Arduino", "C", "Magnetic Field Sensors", "Algorithms"],
       icon: <Star className="w-6 h-6" />,
-      link: "https://ai-content.demo.com",
-      github: "https://github.com/yourusername/ai-content",
-      image: "/api/placeholder/600/400",
+      link: "https://www.linkedin.com/in/hesaraperera/details/projects/",
+      github: "https://www.linkedin.com/in/hesaraperera/details/projects/",
+      image: LandMineSystem,
       features: [
-        "AI text generation",
-        "Content optimization",
-        "SEO analysis",
-        "Multiple content formats"
+        "Real-time detection",
+        "Autonomous operation",
+        "Algorithm optimization"
       ]
     },
     {
-      title: "Portfolio Website",
-      description: "A modern portfolio website built with Next.js and Three.js, featuring 3D animations and interactive elements to showcase projects and skills.",
-      tags: ["Next.js", "Three.js", "Tailwind CSS", "Framer Motion"],
+      title: "Graphic Design Portfolio",
+      description: "A portfolio website showcasing graphic design projects and UI/UX designs created using figma",
+      tags: ["Figma", "UI/UX Design", "Graphic Design", "Illustrator"],
       icon: <Globe className="w-6 h-6" />,
-      link: "https://portfolio.demo.com",
-      github: "https://github.com/yourusername/portfolio",
-      image: "/api/placeholder/600/400",
+      link: "https://www.designfusion.studio/",
+      github: "https://github.com/Hesara2003/Graphic-Design-Portfolio",
+      image: GraphicDesign,
       features: [
         "3D animations",
         "Interactive UI",
@@ -288,7 +298,7 @@ const ProjectsPage = () => {
             {/* Projects Grid */}
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-20">
               {projects.map((project, index) => (
-                <ProjectCard key={project.title} project={project} index={index} />
+                <ProjectCard key={project.title} project={project} index={index} onView={setSelectedProject} />
               ))}
             </div>
 
@@ -344,6 +354,12 @@ const ProjectsPage = () => {
           </div>
         </section>
       </main>
+
+      <ProjectModal
+        project={selectedProject}
+        isOpen={!!selectedProject}
+        onClose={() => setSelectedProject(null)}
+      />
 
       <Footer />
     </div>

@@ -1,39 +1,130 @@
 'use client';
 
 import React, { useState } from 'react';
-import { motion } from 'framer-motion';
-import { Award, ExternalLink, Search } from 'lucide-react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { Award, ExternalLink, Search, X } from 'lucide-react';
 import Navbar from '../../components/Navbar';
 import Footer from '../../components/Footer';
+import Image from 'next/image';
+import MetaLogo from '../../img/meta-logo.png';
+import AwsLogo from '../../img/aws-logo.svg';
+import GoogleLogo from '../../img/google-logo.png';
+import AwsBg from '../../img/aws-bg.jpg';
+
+const CertModal = ({ cert, isOpen, onClose }) => (
+  <AnimatePresence>
+    {isOpen && (
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        exit={{ opacity: 0 }}
+        className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80"
+        onClick={onClose}
+      >
+        <motion.div
+          initial={{ scale: 0.95 }}
+          animate={{ scale: 1 }}
+          exit={{ scale: 0.95 }}
+          onClick={(e) => e.stopPropagation()}
+          className="relative w-full max-w-4xl bg-gray-900 rounded-xl overflow-hidden"
+        >
+          <Image
+            src={cert.certificateImage}
+            alt={cert.title}
+            width={1200}
+            height={800}
+            className="w-full h-auto"
+          />
+          <button
+            onClick={onClose}
+            className="absolute top-4 right-4 p-2 rounded-full bg-black/50 hover:bg-black/70"
+          >
+            <X className="w-6 h-6" />
+          </button>
+        </motion.div>
+      </motion.div>
+    )}
+  </AnimatePresence>
+);
 
 const CertificationsPage = () => {
   const [selectedCategory, setSelectedCategory] = useState('All');
   const [searchQuery, setSearchQuery] = useState('');
+  const [selectedCert, setSelectedCert] = useState(null);
 
   const categories = ['All', 'Cloud', 'Development', 'Design'];
 
   const certifications = [
     {
-      title: "AWS Solutions Architect",
+      title: "AWS Cloud Technical Essentials",
       issuer: "Amazon Web Services",
-      date: "2023",
-      logo: "/aws-logo.png",
-      credential: "https://aws.amazon.com/verification",
-      category: "Cloud"
+      date: "2024",
+      logo: AwsLogo,
+      credential: "https://www.coursera.org/account/accomplishments/verify/GI9J2TROJU8W",
+      category: "Cloud",
+      bgImage: "/img/aws-bg.jpg",
+      certificateImage: "/aws-cert.jpg"
     },
+
+    {
+      title: "The Cloud Architect Role in the AWS Cloud",
+      issuer: "Amazon Web Services",
+      date: "2025",
+      logo: AwsLogo,
+      credential: "https://www.linkedin.com/in/hesaraperera/details/certifications/",
+      category: "Cloud",
+      bgImage: "/img/aws-bg.jpg",
+      certificateImage: "/aws-cert.jpg"
+    },
+
+    {
+      title: "AWS Educate Introduction to Cloud 101",
+      issuer: "Amazon Web Services",
+      date: "2025",
+      logo: AwsLogo,
+      credential: "https://www.credly.com/badges/289feace-135b-4c09-8a68-93019d6eee27/linked_in_profile",
+      category: "Cloud",
+      bgImage: "/img/aws-bg.jpg",
+      certificateImage: "/aws-cert.jpg"
+    },
+
+    {
+      title: "AWS Foundations: Getting Started with the AWS Cloud Essentials",
+      issuer: "Amazon Web Services",
+      date: "2025",
+      logo: AwsLogo,
+      credential: "https://www.linkedin.com/in/hesaraperera/details/certifications/",
+      category: "Cloud",
+      bgImage: "/img/aws-bg.jpg",
+      certificateImage: "/aws-cert.jpg"
+    },
+
+    {
+      title: "Foundations of Prompt Engineering",
+      issuer: "Amazon Web Services",
+      date: "2024",
+      logo: AwsLogo,
+      credential: "https://www.linkedin.com/in/hesaraperera/details/certifications/",
+      category: "Cloud",
+      bgImage: "/img/aws-bg.jpg",
+      certificateImage: "/aws-cert.jpg"
+    },
+
     {
       title: "Meta Frontend Developer",
       issuer: "Meta",
       date: "2023",
-      logo: "/meta-logo.png",
-      credential: "https://coursera.org/verify/professional-cert/...",
-      category: "Development"
+      logo: MetaLogo,
+      credential: "https://meta.com/verification",
+      category: "Development",
+      bgImage: "/meta-bg.jpg",
+      certificateImage: "/meta-cert.jpg"
     },
     {
       title: "Google UX Design",
       issuer: "Google",
+      logo : GoogleLogo,
       date: "2023",
-      logo: "/google-logo.png",
       credential: "https://coursera.org/verify/professional-cert/...",
       category: "Design"
     },
@@ -188,10 +279,12 @@ const CertificationsPage = () => {
                   
                   <div className="relative z-10 space-y-4">
                     <div className="flex justify-between items-start mb-4">
-                      <img
+                      <Image
                         src={cert.logo}
                         alt={cert.issuer}
-                        className="w-12 h-12 object-contain"
+                        width={50}
+                        height={50}
+                        className="object-contain"
                       />
                       <span className="px-3 py-1 text-sm bg-purple-500/20 rounded-full text-purple-300">
                         {cert.category}
@@ -218,6 +311,16 @@ const CertificationsPage = () => {
                         <ExternalLink className="w-4 h-4" />
                       </a>
                     </div>
+                    <button
+                      onClick={() => setSelectedCert(cert)}
+                      className="mt-4 px-4 py-2 bg-purple-500 hover:bg-purple-600 
+                        rounded-lg flex items-center justify-center space-x-2 
+                        opacity-70 hover:opacity-100 transform hover:scale-105
+                        transition-all duration-300"
+                    >
+                      <span>View Certificate</span>
+                      <ExternalLink className="w-4 h-4" />
+                    </button>
                   </div>
                 </motion.div>
               ))}
@@ -225,6 +328,12 @@ const CertificationsPage = () => {
           </div>
         </section>
       </main>
+      
+      <CertModal
+        cert={selectedCert}
+        isOpen={!!selectedCert}
+        onClose={() => setSelectedCert(null)}
+      />
       
       <Footer />
     </div>
