@@ -2,7 +2,7 @@
 
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Award, ExternalLink, Mic, Search, X } from 'lucide-react';
+import { Award, ExternalLink, Linkedin, Mic, Search, X } from 'lucide-react';
 import Navbar from '../../components/Navbar';
 import Footer from '../../components/Footer';
 import Image from 'next/image';
@@ -34,6 +34,17 @@ import introAi from '../../img/Certificates/AI ML/intro-ai.png';
 import ghAdvanced from '../../img/Certificates/Version Control/gh-advanced.png';
 import ghFoundations from '../../img/Certificates/Version Control/gh-foundations.png';
 import GitHub from '../../img/github-logo.png';
+import csEssentials from '../../img/Certificates/Cybersecurity/cs-essentials.png';
+import csIntro from '../../img/Certificates/Cybersecurity/cs-intro.png';
+import CiscoLogo from '../../img/Cisco-logo.jpg';
+import csTl from '../../img/Certificates/Cybersecurity/cs-tl.png';
+import hpLogo from '../../img/hp-logo.png';
+import hpDs from '../../img/Certificates/Data Science/hp-ds.png';
+import glLogo from '../../img/gl-logo.png';
+import pbiDs from '../../img/Certificates/Data Science/pbi-ds.png';
+import hrLogo from '../../img/hr-logo.png';
+import hrJava from '../../img/Certificates/Development/hr-java.png';
+import msSd from '../../img/Certificates/Development/ms-sd.png';
 
 interface Cert {
   title: string;
@@ -96,7 +107,7 @@ const CertificationsPage = () => {
     certificateImage?: string;
   }>(null);
 
-  const categories = ['All', 'Cloud', 'Development', 'Design', 'AI/ML','Version Control', 'Cybersecurity'];
+  const categories = ['All', 'Cloud', 'Development', 'Design', 'AI/ML','Version Control', 'Cybersecurity','Data Science','Other'];
 
   const certifications = [
     {
@@ -141,6 +152,17 @@ const CertificationsPage = () => {
       category: "Cloud",
       bgImage: "/img/aws-bg.jpg",
       certificateImage: GettingStarted
+    },
+
+    {
+      title: "Foundations of Prompt Engineering",
+      issuer: "Amazon Web Services",
+      date: "2024",
+      logo: AwsLogo,
+      credential: "https://www.linkedin.com/in/hesaraperera/details/certifications/",
+      category: "Cloud",
+      bgImage: "/img/aws-bg.jpg",
+      certificateImage: PromptEng
     },
 
     {
@@ -198,16 +220,7 @@ const CertificationsPage = () => {
       certificateImage: azureca
     },
 
-    {
-      title: "Foundations of Prompt Engineering",
-      issuer: "Amazon Web Services",
-      date: "2024",
-      logo: AwsLogo,
-      credential: "https://www.linkedin.com/in/hesaraperera/details/certifications/",
-      category: "Cloud",
-      bgImage: "/img/aws-bg.jpg",
-      certificateImage: PromptEng
-    },
+   
 
     {
       title: "Supervised Machine Learning: Regression and Classification",
@@ -298,6 +311,76 @@ const CertificationsPage = () => {
     },
 
 
+    {
+      title: "Career Essentials in Cybersecurity by Microsoft",
+      issuer: "Microsoft",
+      date: "2024",
+      logo: Microsoft,
+      credential: "https://www.linkedin.com/learning/certificates/94f1ae30e73bbeecb57432f543c99854a79cd664c2610a7e02b4ea3d292183bf?lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base_certifications_details%3B9mWvwPOSQlSWEIo2WCRdEA%3D%3D",
+      category: "Cybersecurity",
+      certificateImage: csEssentials
+    },
+
+    {
+      title: "Introduction to Cybersecurity",
+      issuer: "Cisco",
+      date: "2024",
+      logo: CiscoLogo,
+      credential: "https://www.credly.com/badges/0ea0b4f9-b782-4e29-9a95-489627cd3641/linked_in_profile",
+      category: "Cybersecurity",
+      certificateImage: csIntro
+    },
+
+    {
+      title: "The Cybersecurity Threat Landscape",
+      issuer: "LinkedIn Learning",
+      date: "2024",
+      logo: linkedin,
+      credential: "https://www.linkedin.com/learning/certificates/6f080d0cc7349ffc21a1ca01f30acb1106d56e723c628b77d7a94bea70aec664?lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base_certifications_details%3BMJZM%2BS0LTFm3nO7lSd%2Bb4w%3D%3D",
+      category: "Cybersecurity",
+      certificateImage: csTl
+    },
+
+    {
+      title: "Data Science and Analytics",
+      issuer: "HP",
+      date: "2024",
+      logo: hpLogo,
+      credential: "https://www.life-global.org/certificate/d48ef91c-3925-4f30-872a-cab3f7322143",
+      category: "Data Science",
+      certificateImage: hpDs,
+    },
+
+    {
+      title: "Data Visualization with Power BI",
+      issuer: "Great Learning",
+      date: "2024",
+      logo: glLogo,
+      credential: "https://olympus.mygreatlearning.com/courses/30824",
+      category: "Data Science",
+      certificateImage: pbiDs,
+    },
+
+    {
+      title: "Career Essentials in Software Development by Microsoft",
+      issuer: "Microsoft",
+      date: "2024",
+      logo: Microsoft,
+      credential: "https://www.linkedin.com/learning/certificates/5ead4814a9e4df34d635e6ee100e7f7911208769a3d4442e6f1790b293e217c3?lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base_certifications_details%3BK2coH9TQRn%2B2BUAfdv24Qw%3D%3D",
+      category: "Development",
+      certificateImage: msSd,
+    },
+
+    {
+      title: "Java(Basic) Certificate",
+      issuer: "Hackerrank",
+      date: "2024",
+      logo: hrLogo,
+      credential: "https://www.hackerrank.com/certificates/3070f131e4c6",
+      category: "Development",
+      certificateImage: hrJava,
+    },
+    
   ];
 
   const filteredCerts = certifications.filter(cert => {
@@ -341,7 +424,7 @@ const CertificationsPage = () => {
         <div className="absolute inset-0 opacity-5 mix-blend-overlay">
           <div className="h-full w-full" 
             style={{
-              backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%' height='100%' filter='url(%23noiseFilter)'/%3E%3C/svg%3E")`,
+              backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3C/rect width='100%' height='100%' filter='url(%23noiseFilter)'/%3E%3C/svg%3E")`,
             }}
           />
         </div>
@@ -375,33 +458,45 @@ const CertificationsPage = () => {
         {/* Search & Filter Section */}
         <section className="py-8">
           <div className="max-w-6xl mx-auto px-4">
-            <div className="flex flex-col md:flex-row gap-4 items-center justify-between 
-              bg-gray-800/50 backdrop-blur-md rounded-xl p-4 border border-gray-700">
-              <div className="flex gap-2 overflow-x-auto">
-                {categories.map(category => (
-                  <button
-                    key={category}
-                    onClick={() => setSelectedCategory(category)}
-                    className={`px-4 py-2 rounded-lg transition-all whitespace-nowrap
-                      ${selectedCategory === category
-                        ? 'bg-purple-500 text-white'
-                        : 'bg-gray-700/50 text-gray-400 hover:bg-gray-700'}`}
-                  >
-                    {category}
-                  </button>
-                ))}
-              </div>
-              <div className="relative w-full md:w-64">
-                <Search className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400 w-5 h-5" />
+            <div className="flex flex-col space-y-4 mb-8">
+              {/* Search Bar */}
+              <div className="relative w-full md:w-96">
                 <input
                   type="text"
-                  placeholder="Search certificates..."
+                  placeholder="Search certifications..."
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
-                  className="w-full pl-10 pr-4 py-2 bg-gray-700/50 rounded-lg text-white
-                    border border-gray-600 focus:border-purple-500 focus:outline-none
-                    focus:ring-2 focus:ring-purple-500/20"
+                  className="w-full px-4 py-3 rounded-xl bg-gray-800/50 text-gray-300 
+                    border border-gray-700 focus:border-purple-500 focus:ring-2 
+                    focus:ring-purple-500/20 transition-all duration-300"
                 />
+                <Search className="absolute right-3 top-3.5 w-5 h-5 text-gray-400" />
+              </div>
+
+              {/* Category Filters */}
+              <div className="relative">
+                <div className="flex overflow-x-auto pb-4 space-x-2 scrollbar-thin 
+                  scrollbar-thumb-gray-700 scrollbar-track-gray-800/50">
+                  {categories.map((category) => (
+                    <motion.button
+                      key={category}
+                      onClick={() => setSelectedCategory(category)}
+                      whileHover={{ scale: 1.05 }}
+                      whileTap={{ scale: 0.95 }}
+                      className={`px-6 py-2.5 rounded-xl whitespace-nowrap 
+                        transition-all duration-300 ${
+                          selectedCategory === category 
+                            ? 'bg-gradient-to-r from-purple-500 to-blue-500 text-white font-medium shadow-lg' 
+                            : 'bg-gray-800/50 text-gray-400 hover:bg-gray-700/50'
+                        }`}
+                    >
+                      {category}
+                    </motion.button>
+                  ))}
+                </div>
+                {/* Fade Edges */}
+                <div className="absolute right-0 top-0 h-full w-20 
+                  bg-gradient-to-l from-gray-900 to-transparent pointer-events-none" />
               </div>
             </div>
           </div>
