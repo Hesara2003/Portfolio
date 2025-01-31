@@ -24,7 +24,7 @@ const Footer = () => {
   );
 
   // Update SocialIcon component
-  const SocialIcon = ({ icon: Icon, name, href }: { icon: React.ComponentType; name: string; href: string }) => (
+  const SocialIcon = ({ icon: Icon, name, href }: { icon: React.ComponentType<{ className?: string }>; name: string; href: string }) => (
     <motion.a
       href={href}
       target="_blank"
