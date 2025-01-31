@@ -8,7 +8,7 @@ interface Project {
   icon: JSX.Element;
   link: string;
   github: string;
-  image: StaticImageData;
+  image: StaticImageData | string;
   features: string[];
 }
 
@@ -20,7 +20,7 @@ interface ProjectCardProps {
     icon: JSX.Element;
     link: string;
     github: string;
-    image: StaticImageData; // Ensure this matches the type used in the data
+    image: StaticImageData | string; // Ensure this matches the type used in the data
     features: string[];
   };
   index: number;
