@@ -133,6 +133,37 @@ const CertificationsPage = () => {
     },
 
     {
+      title: "Supervised Machine Learning: Regression and Classification",
+      issuer: "Stanford University",
+      date: "2024",
+      logo: stanford,
+      credential: "https://coursera.org/verify/A7U3RH6NV6BQ",
+      category: "AI/ML",
+      certificateImage: stReg
+    },
+
+    {
+      title: "Microsoft UX Design Professional Certificate",
+      issuer: "Microsoft",
+      date: "2024",
+      logo: Microsoft,
+      credential: "https://www.coursera.org/account/accomplishments/professional-cert/FDPT7VJI71TJ?utm_source=link&utm_medium=certificate&utm_content=cert_image&utm_campaign=sharing_cta&utm_product=prof",
+      category: "Design",
+      certificateImage: msUX,
+    },
+
+    {
+      title: "Postman Student Expert",
+      issuer: "Postman",
+      date: "2024",
+      logo: postmanLogo,
+      credential: "https://api.badgr.io/public/assertions/AKwPbMowSae4QxsthkbUjA",
+      category: "Development",
+      certificateImage: pmSx,
+    },
+
+
+    {
       title: "The Cloud Architect Role in the AWS Cloud",
       issuer: "Amazon Web Services",
       date: "2025",
@@ -233,22 +264,14 @@ const CertificationsPage = () => {
 
    
 
-    {
-      title: "Supervised Machine Learning: Regression and Classification",
-      issuer: "Stanford University",
-      date: "2024",
-      logo: stanford,
-      credential: "https://learn.nvidia.com/certificates?id=gS5RuS08SMaEGj9xj_pudQ#",
-      category: "AI/ML",
-      certificateImage: stReg
-    },
+    
 
     {
       title: "AI/ML Engineer- Stage 1",
       issuer: "Sri Lanka Institute of Information Technology",
       date: "2025",
       logo: SliitLogo,
-      credential: "https://freecodecamp.org/certification/...",
+      credential: "https://code.sliit.org/certificates/es7tbynflu",
       category: "AI/ML",
       certificateImage: Stage1
     },
@@ -257,7 +280,7 @@ const CertificationsPage = () => {
       issuer: "Sri Lanka Institute of Information Technology",
       date: "2025",
       logo: SliitLogo,
-      credential: "https://freecodecamp.org/certification/...",
+      credential: "https://code.sliit.org/certificates/9bztojhzvy",
       category: "AI/ML",
       certificateImage: Stage2
     },
@@ -392,26 +415,8 @@ const CertificationsPage = () => {
       certificateImage: uomPg,
     },
 
-    {
-      title: "Postman Student Expert",
-      issuer: "Postman",
-      date: "2024",
-      logo: postmanLogo,
-      credential: "https://api.badgr.io/public/assertions/AKwPbMowSae4QxsthkbUjA",
-      category: "Development",
-      certificateImage: pmSx,
-    },
-
-    {
-      title: "Microsoft UX Design Professional Certificate",
-      issuer: "Microsoft",
-      date: "2024",
-      logo: Microsoft,
-      credential: "https://www.coursera.org/account/accomplishments/professional-cert/FDPT7VJI71TJ?utm_source=link&utm_medium=certificate&utm_content=cert_image&utm_campaign=sharing_cta&utm_product=prof",
-      category: "Design",
-      certificateImage: msUX,
-    },
-
+    
+    
     {
       title: "Responsive Web Design",
       issuer: "freeCodeCamp",
@@ -626,7 +631,7 @@ const CertificationsPage = () => {
                         target="_blank"
                         rel="noopener noreferrer"
                         className="flex items-center gap-2 text-purple-400 hover:text-purple-300 
-                          transition-colors"
+                          transition-colors hover:underline"
                       >
                         <span>Verify</span>
                         <ExternalLink className="w-4 h-4" />
@@ -644,7 +649,7 @@ const CertificationsPage = () => {
                         opacity-0 group-hover:opacity-100 blur transition-opacity duration-300" />
                       
                       {/* Button Content */}
-                      <div className="relative z-10 flex items-center space-x-2">
+                      <div className="relative z-10 flex items-center  space-x-2">
                         <span className="text-white font-medium">View Certificate</span>
                         <ExternalLink className="w-4 h-4 text-white transform 
                           group-hover:rotate-12 transition-transform duration-300" />

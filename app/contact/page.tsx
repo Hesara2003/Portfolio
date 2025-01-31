@@ -3,7 +3,7 @@
 import { useState } from 'react';
 import Navbar from '../../components/Navbar';
 import Footer from '../../components/Footer';
-import { Mail, Phone, MapPin, Send, Loader2, CheckCircle, Github, Linkedin, Twitter } from 'lucide-react';
+import { Mail, Phone, MapPin, Send, Loader2, CheckCircle, Github, Linkedin, Twitter, Dribbble } from 'lucide-react';
 import { motion } from 'framer-motion';
 
 const ContactPage = () => {
@@ -15,52 +15,66 @@ const ContactPage = () => {
   });
   
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const [submitStatus, setSubmitStatus] = useState<null | 'success'>(null);
+  const [submitStatus, setSubmitStatus] = useState<null | 'success' | 'error'>(null);
   const [focusedField, setFocusedField] = useState(null);
 
   const contactInfo = [
     {
       icon: <Mail className="w-6 h-6" />,
       title: "Email",
-      value: "hello@example.com",
-      link: "mailto:hello@example.com"
+      value: "hesarap3@gmail.com",
+      link: "mailto:hesarap3@gmail.com.com"
     },
     {
       icon: <Phone className="w-6 h-6" />,
       title: "Phone",
-      value: "+1 (555) 123-4567",
-      link: "tel:+15551234567"
+      value: "+94 77 638 4916",
+      link: "https://wa.me/94776384916"
     },
     {
       icon: <MapPin className="w-6 h-6" />,
       title: "Location",
-      value: "San Francisco, CA",
+      value: "Colombo, Sri Lanka",
       link: "#"
     }
   ];
 
   const socialLinks = [
-    { icon: <Github className="w-6 h-6" />, href: "#", label: "GitHub" },
-    { icon: <Linkedin className="w-6 h-6" />, href: "#", label: "LinkedIn" },
-    { icon: <Twitter className="w-6 h-6" />, href: "#", label: "Twitter" }
+    { icon: <Github className="w-6 h-6" />, href: "https://github.com/Hesara2003", label: "GitHub" },
+    { icon: <Linkedin className="w-6 h-6" />, href: "https://www.linkedin.com/in/hesaraperera/", label: "LinkedIn" },
+    { icon: <Dribbble className="w-6 h-6" />, href: "#https://www.behance.net/hesaraperera", label: "Twitter" }
   ];
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setIsSubmitting(true);
-    await new Promise(resolve => setTimeout(resolve, 2000));
-    setIsSubmitting(false);
-    setSubmitStatus('success');
-    
-    setTimeout(() => {
-      setSubmitStatus(null);
-      setFormState({
-        name: '',
-        email: '',
-        subject: '',
-        message: ''
+
+    try {
+      const response = await fetch('/pages/api/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(formState)
       });
-    }, 3000);
+
+      if (response.ok) {
+        setSubmitStatus('success');
+        setFormState({
+          name: '',
+          email: '',
+          subject: '',
+          message: ''
+        });
+      } else {
+        setSubmitStatus('error');
+      }
+    } catch (error) {
+      setSubmitStatus('error');
+    } finally {
+      setIsSubmitting(false);
+      setTimeout(() => setSubmitStatus(null), 3000);
+    }
   };
 
   const handleInputChange = (e) => {
@@ -129,7 +143,7 @@ const ContactPage = () => {
               <div className="relative group">
                 <div className="absolute -inset-0.5 bg-gradient-to-r from-purple-500 to-blue-500 rounded-lg blur opacity-30 group-hover:opacity-50 transition duration-1000"></div>
                 <form onSubmit={handleSubmit} className="relative space-y-6 backdrop-blur-sm bg-gray-900/90 p-8 rounded-lg border border-gray-700/50">
-                  {['name', 'email', 'subject'].map((field) => (
+                  {(['name', 'email', 'subject'] as Array<keyof typeof formState>).map((field) => (
                     <div key={field} className="relative">
                       <input
                         type={field === 'email' ? 'email' : 'text'}
@@ -185,6 +199,11 @@ const ContactPage = () => {
                         <>
                           <CheckCircle className="w-5 h-5" />
                           <span>Message Sent!</span>
+                        </>
+                      ) : submitStatus === 'error' ? (
+                        <>
+                          <CheckCircle className="w-5 h-5" />
+                          <span>Failed to send message. Please try again.</span>
                         </>
                       ) : (
                         <>
