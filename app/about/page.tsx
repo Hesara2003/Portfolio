@@ -5,7 +5,6 @@ import { motion } from 'framer-motion';
 import Navbar from '../../components/Navbar';
 import Footer from '../../components/Footer';
 import { Code, Palette, Globe, Coffee, Database, Cpu, Cloud, Shield, Star, Heart, Quote, BookOpen, Zap, ExternalLink } from 'lucide-react';
-import { link } from 'fs';
 
 const FloatingIcon = ({ icon: Icon, initialPosition }: { icon: React.ComponentType<{ className?: string }>, initialPosition: { x: number, y: number } }) => {
   const [position, setPosition] = useState(initialPosition);

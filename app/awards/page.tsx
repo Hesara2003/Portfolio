@@ -1,12 +1,10 @@
 'use client';
 
 import React, { useState } from 'react';
-import Image from 'next/image';
 import { Award, Trophy, Medal, Star, ExternalLink, Zap, Smartphone } from 'lucide-react';
 import { motion } from 'framer-motion';
 import Navbar from '../../components/Navbar';
 import Footer from '../../components/Footer';
-import Link from 'next/link';
 import xtreme from '../../img/xtreme.png'
 const awards = [
   {
