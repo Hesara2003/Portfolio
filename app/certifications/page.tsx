@@ -7,6 +7,7 @@ import Navbar from '../../components/Navbar';
 import Footer from '../../components/Footer';
 import Image from 'next/image';
 import MetaLogo from '../../img/meta-logo.png';
+import type { StaticImageData } from 'next/image';
 import AwsLogo from '../../img/aws-logo.png';
 import GoogleLogo from '../../img/google-logo.png';
 import Cloud101 from '../../img/Certificates/Cloud/Cloud101.png';
@@ -65,7 +66,7 @@ interface Cert {
   credential: string;
   category: string;
   bgImage?: string;
-  certificateImage?: string;
+  certificateImage?: string | StaticImageData;
 }
 
 const CertModal = ({ cert, isOpen, onClose }: { cert: Cert | null; isOpen: boolean; onClose: () => void }) => (
@@ -115,7 +116,7 @@ const CertificationsPage = () => {
     credential: string;
     category: string;
     bgImage?: string;
-    certificateImage?: string;
+    certificateImage?: string | StaticImageData;
   }>(null);
 
   const categories = ['All', 'Cloud', 'Development', 'Design', 'AI/ML','Version Control', 'Cybersecurity','Data Science','Other'];
