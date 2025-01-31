@@ -77,7 +77,7 @@ const ContactPage = () => {
     }
   };
 
-  const handleInputChange = (e) => {
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     setFormState({
       ...formState,
       [e.target.name]: e.target.value
