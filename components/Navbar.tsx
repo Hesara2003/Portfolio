@@ -16,8 +16,9 @@ const Navbar = () => {
     { href: '/about', label: 'About', icon: User },
     { href: '/projects', label: 'Projects', icon: Briefcase },
     { href: '/certifications', label: 'Certifications', icon: Award },
-    { href: '/contact', label: 'Contact', icon: Mail },
-    { href: '/awards', label: 'Awards', icon: Award }
+    { href: '/awards', label: 'Awards', icon: Award },
+    { href: '/contact', label: 'Contact', icon: Mail }
+
   ];
 
   // Handle scroll effect

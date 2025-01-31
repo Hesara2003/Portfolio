@@ -9,7 +9,7 @@ import NextGen from '../../img/Next-Gen Web.png'
 import Portfolio from '../../img/Portfolio.png'
 import LandMineSystem from '../../img/Land Mine.png'
 import GraphicDesign from '../../img/Graphic Design.png'
-import Image from 'next/image';
+import Image, { StaticImageData } from 'next/image';
 import ProjectModal from '../../components/ProjectModal';
 
 const GridBackground = () => (
@@ -25,7 +25,7 @@ interface Project {
   icon: JSX.Element;
   link: string;
   github: string;
-  image: string;
+  image: StaticImageData;
   features: string[];
 }
 
