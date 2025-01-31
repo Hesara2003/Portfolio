@@ -23,7 +23,7 @@ import azurecv from '../../img/Certificates/Cloud/azure-cv.png';
 import azurearch from '../../img/Certificates/Cloud/azure-arch.png';
 import azurecc from '../../img/Certificates/Cloud/azure-cc.png';
 import azureca from '../../img/Certificates/Cloud/azure-ca.png';
-import stReg from '../../img/Certificates/Ai ML/st-reg.png';
+import stReg from '../../img/Certificates/AI ML/st-reg.png';
 import stanford from '../../img/stanford-logo.png';
 import Stage1 from '../../img/Certificates/AI ML/Stage01.png';
 import Stage2 from '../../img/Certificates/AI ML/Stage02.png';
