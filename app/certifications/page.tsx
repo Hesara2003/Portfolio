@@ -536,11 +536,11 @@ const CertificationsPage = () => {
         </section>
 
         {/* Search & Filter Section */}
-        <section className="py-8">
+        <section className="py-8  ">
           <div className="max-w-6xl mx-auto px-4">
             <div className="flex flex-col space-y-4 mb-8">
               {/* Search Bar */}
-              <div className="relative w-full md:w-96">
+              <div className="relative w-full md:w-1/2 lg:w-1/3 mx-auto ">
                 <input
                   type="text"
                   placeholder="Search certifications..."
@@ -555,8 +555,8 @@ const CertificationsPage = () => {
 
               {/* Category Filters */}
               <div className="relative">
-                <div className="flex overflow-x-auto pb-4 space-x-2 scrollbar-thin 
-                  scrollbar-thumb-gray-700 scrollbar-track-gray-800/50">
+                <div className="flex overflow-x-auto pb-4 space-x-6 scrollbar-hide scroll-smooth  
+                  scrollbar-thumb-gray-700 scrollbar-track-blue-500 py-2">
                   {categories.map((category) => (
                     <motion.button
                       key={category}
