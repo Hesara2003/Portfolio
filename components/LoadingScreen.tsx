@@ -8,7 +8,7 @@ interface LoadingScreenProps {
 const LoadingScreen: FC<LoadingScreenProps> = ({ onComplete }) => {
   const [progress, setProgress] = useState(0);
   const text = "HESARA";
-  const letters = Array.from(text);
+  const letters = Array.from(text) as Array<keyof typeof letterPaths>;
 
   useEffect(() => {
     const timer = setInterval(() => {

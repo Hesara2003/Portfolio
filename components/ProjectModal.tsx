@@ -14,6 +14,7 @@ interface Project {
 
 interface ProjectModalProps {
   project: Project;
+  
   isOpen: boolean;
   onClose: () => void;
 }

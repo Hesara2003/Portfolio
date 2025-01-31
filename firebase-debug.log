@@ -1,41 +1,43 @@
-[debug] [2025-01-31T14:09:22.608Z] ----------------------------------------------------------------------
-[debug] [2025-01-31T14:09:22.612Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\Dell\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js init
-[debug] [2025-01-31T14:09:22.613Z] CLI Version:   13.29.2
-[debug] [2025-01-31T14:09:22.613Z] Platform:      win32
-[debug] [2025-01-31T14:09:22.613Z] Node Version:  v20.15.1
-[debug] [2025-01-31T14:09:22.613Z] Time:          Fri Jan 31 2025 19:39:22 GMT+0530 (India Standard Time)
-[debug] [2025-01-31T14:09:22.613Z] ----------------------------------------------------------------------
+[debug] [2025-01-31T15:27:15.369Z] ----------------------------------------------------------------------
+[debug] [2025-01-31T15:27:15.372Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\Dell\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js deploy
+[debug] [2025-01-31T15:27:15.372Z] CLI Version:   13.29.3
+[debug] [2025-01-31T15:27:15.372Z] Platform:      win32
+[debug] [2025-01-31T15:27:15.372Z] Node Version:  v20.15.1
+[debug] [2025-01-31T15:27:15.372Z] Time:          Fri Jan 31 2025 20:57:15 GMT+0530 (India Standard Time)
+[debug] [2025-01-31T15:27:15.373Z] ----------------------------------------------------------------------
 [debug] 
-[debug] [2025-01-31T14:09:22.619Z] >>> [apiv2][query] GET https://firebase-public.firebaseio.com/cli.json [none]
-[debug] [2025-01-31T14:09:22.693Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
-[debug] [2025-01-31T14:09:22.694Z] > authorizing via signed-in user (hesarapasandul632@gmail.com)
+[debug] [2025-01-31T15:27:15.607Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2025-01-31T15:27:15.607Z] > authorizing via signed-in user (hesarapasandul632@gmail.com)
+[debug] [2025-01-31T15:27:15.607Z] [iam] checking project hesara-portfolio for permissions ["firebase.projects.get","firebasehosting.sites.update"]
+[debug] [2025-01-31T15:27:15.609Z] Checked if tokens are valid: true, expires at: 1738340345505
+[debug] [2025-01-31T15:27:15.609Z] Checked if tokens are valid: true, expires at: 1738340345505
+[debug] [2025-01-31T15:27:15.610Z] >>> [apiv2][query] POST https://cloudresourcemanager.googleapis.com/v1/projects/hesara-portfolio:testIamPermissions [none]
+[debug] [2025-01-31T15:27:15.610Z] >>> [apiv2][(partial)header] POST https://cloudresourcemanager.googleapis.com/v1/projects/hesara-portfolio:testIamPermissions x-goog-quota-user=projects/hesara-portfolio
+[debug] [2025-01-31T15:27:15.610Z] >>> [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/hesara-portfolio:testIamPermissions {"permissions":["firebase.projects.get","firebasehosting.sites.update"]}
+[debug] [2025-01-31T15:27:16.913Z] <<< [apiv2][status] POST https://cloudresourcemanager.googleapis.com/v1/projects/hesara-portfolio:testIamPermissions 200
+[debug] [2025-01-31T15:27:16.913Z] <<< [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/hesara-portfolio:testIamPermissions {"permissions":["firebase.projects.get","firebasehosting.sites.update"]}
+[debug] [2025-01-31T15:27:16.914Z] Checked if tokens are valid: true, expires at: 1738340345505
+[debug] [2025-01-31T15:27:16.914Z] Checked if tokens are valid: true, expires at: 1738340345505
+[debug] [2025-01-31T15:27:16.914Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/hesara-portfolio [none]
+[debug] [2025-01-31T15:27:17.345Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/hesara-portfolio 200
+[debug] [2025-01-31T15:27:17.345Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/hesara-portfolio {"projectId":"hesara-portfolio","projectNumber":"54111322107","displayName":"portfolio","name":"projects/hesara-portfolio","resources":{"hostingSite":"hesara-portfolio"},"state":"ACTIVE","etag":"1_bb02b50b-b448-4c75-b27a-f557fbea40fd"}
 [info] 
-     ######## #### ########  ######## ########     ###     ######  ########
-     ##        ##  ##     ## ##       ##     ##  ##   ##  ##       ##
-     ######    ##  ########  ######   ########  #########  ######  ######
-     ##        ##  ##    ##  ##       ##     ## ##     ##       ## ##
-     ##       #### ##     ## ######## ########  ##     ##  ######  ########
+   Thank you for trying our early preview of Next.js support on Firebase Hosting.
+   During the preview, support is best-effort and breaking changes can be expected. Proceed with caution.
+   The integration is known to work with Next.js version 12 - 15.0. You may encounter errors.
 
-You're about to initialize a Firebase project in this directory:
+   Documentation: https://firebase.google.com/docs/hosting/frameworks/nextjs
+   File a bug: https://github.com/firebase/firebase-tools/issues/new?template=bug_report.md
+   Submit a feature request: https://github.com/firebase/firebase-tools/issues/new?template=feature_request.md
 
-  C:\Users\Dell\Desktop\new-portfolio
+   We'd love to learn from you. Express your interest in helping us shape the future of Firebase Hosting: https://goo.gle/41enW5X
 
-[debug] [2025-01-31T14:09:23.471Z] <<< [apiv2][status] GET https://firebase-public.firebaseio.com/cli.json 200
-[debug] [2025-01-31T14:09:23.472Z] <<< [apiv2][body] GET https://firebase-public.firebaseio.com/cli.json {"cloudBuildErrorAfter":1594252800000,"cloudBuildWarnAfter":1590019200000,"defaultNode10After":1594252800000,"minVersion":"3.0.5","node8DeploysDisabledAfter":1613390400000,"node8RuntimeDisabledAfter":1615809600000,"node8WarnAfter":1600128000000}
+[debug] [2025-01-31T15:27:24.580Z] Checked if tokens are valid: true, expires at: 1738340345505
+[debug] [2025-01-31T15:27:24.580Z] Checked if tokens are valid: true, expires at: 1738340345505
+[debug] [2025-01-31T15:27:24.580Z] >>> [apiv2][query] GET https://firebasehosting.googleapis.com/v1beta1/projects/hesara-portfolio/sites/hesara-portfolio [none]
+[debug] [2025-01-31T15:27:25.839Z] <<< [apiv2][status] GET https://firebasehosting.googleapis.com/v1beta1/projects/hesara-portfolio/sites/hesara-portfolio 200
+[debug] [2025-01-31T15:27:25.839Z] <<< [apiv2][body] GET https://firebasehosting.googleapis.com/v1beta1/projects/hesara-portfolio/sites/hesara-portfolio {"name":"projects/hesara-portfolio/sites/hesara-portfolio","defaultUrl":"https://hesara-portfolio.web.app","type":"DEFAULT_SITE"}
+[info]    ▲ Next.js 15.1.6
+
 [info] 
-=== Project Setup
-[info] 
-[info] First, let's associate this project directory with a Firebase project.
-[info] You can create multiple project aliases by running firebase use --add, 
-[info] but for now we'll just set up a default project.
-[info] 
-[debug] [2025-01-31T14:09:33.612Z] Checked if tokens are valid: false, expires at: 1737723122960
-[debug] [2025-01-31T14:09:33.613Z] Checked if tokens are valid: false, expires at: 1737723122960
-[debug] [2025-01-31T14:09:33.613Z] > refreshing access token with scopes: []
-[debug] [2025-01-31T14:09:33.615Z] >>> [apiv2][query] POST https://www.googleapis.com/oauth2/v3/token [none]
-[debug] [2025-01-31T14:09:33.615Z] >>> [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
-[debug] [2025-01-31T14:09:33.921Z] <<< [apiv2][status] POST https://www.googleapis.com/oauth2/v3/token 200
-[debug] [2025-01-31T14:09:33.922Z] <<< [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
-[debug] [2025-01-31T14:09:33.963Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects pageSize=100
-[debug] [2025-01-31T14:09:35.655Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects 200
-[debug] [2025-01-31T14:09:35.655Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects [omitted]
+
