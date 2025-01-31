@@ -9,9 +9,26 @@ import Image from 'next/image';
 import MetaLogo from '../../img/meta-logo.png';
 import AwsLogo from '../../img/aws-logo.svg';
 import GoogleLogo from '../../img/google-logo.png';
-import AwsBg from '../../img/aws-bg.jpg';
+import Cloud101 from '../../img/Certificates/Cloud/Cloud101.png';
+import ArchitectRol from '../../img/Certificates/Cloud/Architect Rol.png';
+import GettingStarted from '../../img/Certificates/Cloud/Getting Started.png';
+import PromptEng from '../../img/Certificates/Cloud/Prompt Eng.png';
+import TechEssential from '../../img/Certificates/Cloud/Technical Essentials.png';
+import SliitLogo from '../../img/Sliit-logo.png';
+import JetsonNano from '../../img/Certificates/AI ML/JetsonNano.png';
 
-const CertModal = ({ cert, isOpen, onClose }) => (
+interface Cert {
+  title: string;
+  issuer: string;
+  date?: string;
+  logo: any;
+  credential: string;
+  category: string;
+  bgImage?: string;
+  certificateImage?: string;
+}
+
+const CertModal = ({ cert, isOpen, onClose }: { cert: Cert; isOpen: boolean; onClose: () => void }) => (
   <AnimatePresence>
     {isOpen && (
       <motion.div
@@ -29,7 +46,7 @@ const CertModal = ({ cert, isOpen, onClose }) => (
           className="relative w-full max-w-4xl bg-gray-900 rounded-xl overflow-hidden"
         >
           <Image
-            src={cert.certificateImage}
+            src={cert.certificateImage || '/default-cert.jpg'}
             alt={cert.title}
             width={1200}
             height={800}
@@ -50,9 +67,18 @@ const CertModal = ({ cert, isOpen, onClose }) => (
 const CertificationsPage = () => {
   const [selectedCategory, setSelectedCategory] = useState('All');
   const [searchQuery, setSearchQuery] = useState('');
-  const [selectedCert, setSelectedCert] = useState(null);
+  const [selectedCert, setSelectedCert] = useState<null | {
+    title: string;
+    issuer: string;
+    date?: string;
+    logo: any;
+    credential: string;
+    category: string;
+    bgImage?: string;
+    certificateImage?: string;
+  }>(null);
 
-  const categories = ['All', 'Cloud', 'Development', 'Design'];
+  const categories = ['All', 'Cloud', 'Development', 'Design', 'AI/ML'];
 
   const certifications = [
     {
@@ -63,7 +89,7 @@ const CertificationsPage = () => {
       credential: "https://www.coursera.org/account/accomplishments/verify/GI9J2TROJU8W",
       category: "Cloud",
       bgImage: "/img/aws-bg.jpg",
-      certificateImage: "/aws-cert.jpg"
+      certificateImage: TechEssential
     },
 
     {
@@ -74,7 +100,7 @@ const CertificationsPage = () => {
       credential: "https://www.linkedin.com/in/hesaraperera/details/certifications/",
       category: "Cloud",
       bgImage: "/img/aws-bg.jpg",
-      certificateImage: "/aws-cert.jpg"
+      certificateImage: ArchitectRol
     },
 
     {
@@ -85,7 +111,7 @@ const CertificationsPage = () => {
       credential: "https://www.credly.com/badges/289feace-135b-4c09-8a68-93019d6eee27/linked_in_profile",
       category: "Cloud",
       bgImage: "/img/aws-bg.jpg",
-      certificateImage: "/aws-cert.jpg"
+      certificateImage: Cloud101
     },
 
     {
@@ -96,7 +122,62 @@ const CertificationsPage = () => {
       credential: "https://www.linkedin.com/in/hesaraperera/details/certifications/",
       category: "Cloud",
       bgImage: "/img/aws-bg.jpg",
-      certificateImage: "/aws-cert.jpg"
+      certificateImage: GettingStarted
+    },
+
+    {
+      title: "Host a web application with Azure App Service",
+      issuer: "Microsoft",
+      date: "2024",
+      logo: AwsLogo,
+      credential: "https://learn.microsoft.com/en-us/users/pereramph-4397/achievements/habpspg8?ref=https%3A%2F%2Fwww.linkedin.com%2F",
+      category: "Cloud",
+      bgImage: "/img/aws-bg.jpg",
+      certificateImage: GettingStarted
+    },
+
+    {
+      title: "Microsoft Azure AI Fundamentals:Computer Vision",
+      issuer: "Microsoft",
+      date: "2024",
+      logo: AwsLogo,
+      credential: "https://www.linkedin.com/in/hesaraperera/details/certifications/",
+      category: "Cloud",
+      bgImage: "/img/aws-bg.jpg",
+      certificateImage: GettingStarted
+    },
+
+    {
+      title: "Microsoft Azure AI Fundamentals:Describe Azure architecture and services",
+      issuer: "Microsoft",
+      date: "2024",
+      logo: AwsLogo,
+      credential: "https://www.linkedin.com/in/hesaraperera/details/certifications/",
+      category: "Cloud",
+      bgImage: "/img/aws-bg.jpg",
+      certificateImage: GettingStarted
+    },
+
+    {
+      title: "Microsoft Azure AI Fundamentals:Describe cloud concepts",
+      issuer: "Microsoft",
+      date: "2024",
+      logo: AwsLogo,
+      credential: "https://www.linkedin.com/in/hesaraperera/details/certifications/",
+      category: "Cloud",
+      bgImage: "/img/aws-bg.jpg",
+      certificateImage: GettingStarted
+    },
+
+    {
+      title: "Microsoft Cloud Adoption Framework for Azure",
+      issuer: "Microsoft",
+      date: "2024",
+      logo: AwsLogo,
+      credential: "https://www.linkedin.com/in/hesaraperera/details/certifications/",
+      category: "Cloud",
+      bgImage: "/img/aws-bg.jpg",
+      certificateImage: GettingStarted
     },
 
     {
@@ -107,51 +188,89 @@ const CertificationsPage = () => {
       credential: "https://www.linkedin.com/in/hesaraperera/details/certifications/",
       category: "Cloud",
       bgImage: "/img/aws-bg.jpg",
-      certificateImage: "/aws-cert.jpg"
+      certificateImage: PromptEng
     },
 
     {
-      title: "Meta Frontend Developer",
-      issuer: "Meta",
-      date: "2023",
-      logo: MetaLogo,
-      credential: "https://meta.com/verification",
-      category: "Development",
-      bgImage: "/meta-bg.jpg",
-      certificateImage: "/meta-cert.jpg"
-    },
-    {
-      title: "Google UX Design",
-      issuer: "Google",
-      logo : GoogleLogo,
-      date: "2023",
-      credential: "https://coursera.org/verify/professional-cert/...",
-      category: "Design"
-    },
-    {
-      title: "JavaScript Algorithms",
-      issuer: "freeCodeCamp",
-      date: "2023",
-      logo: "/freecodecamp-logo.png",
-      credential: "https://freecodecamp.org/certification/...",
-      category: "Development"
-    },
-    {
-      title: "Responsive Web Design",
-      issuer: "freeCodeCamp",
-      date: "2023",
-      logo: "/freecodecamp-logo.png",
-      credential: "https://freecodecamp.org/certification/...",
-      category: "Development"
-    },
-    {
-      title: "UI/UX Fundamentals",
-      issuer: "Coursera",
-      date: "2023",
+      title: "Supervised Machine Learning: Regression and Classification",
+      issuer: "Stanford University",
+      date: "2024",
       logo: "/coursera-logo.png",
-      credential: "https://coursera.org/verify/...",
-      category: "Design"
-    }
+      credential: "https://learn.nvidia.com/certificates?id=gS5RuS08SMaEGj9xj_pudQ#",
+      category: "AI/ML",
+      certificateImage: JetsonNano
+    },
+
+    {
+      title: "AI/ML Engineer- Stage 1",
+      issuer: "Sri Lanka Institute of Information Technology",
+      date: "2025",
+      logo: SliitLogo,
+      credential: "https://freecodecamp.org/certification/...",
+      category: "AI/ML",
+      certificateImage: "/sliit-cert.jpg"
+    },
+    {
+      title: "AI/ML Engineer- Stage 2",
+      issuer: "Sri Lanka Institute of Information Technology",
+      date: "2025",
+      logo: SliitLogo,
+      credential: "https://freecodecamp.org/certification/...",
+      category: "AI/ML",
+      certificateImage: "/sliit-cert.jpg"
+    },
+    {
+      title: "Getting Started with AI on Jetson Nano",
+      issuer: "NVIDIA",
+      date: "2025",
+      logo: "/coursera-logo.png",
+      credential: "https://learn.nvidia.com/certificates?id=gS5RuS08SMaEGj9xj_pudQ#",
+      category: "AI/ML",
+      certificateImage: JetsonNano
+    },
+
+    {
+      title: "Career Essentials in Genereative AI by Microsoft",
+      issuer: "Microsoft",
+      date: "2024",
+      logo: "/coursera-logo.png",
+      credential: "https://learn.nvidia.com/certificates?id=gS5RuS08SMaEGj9xj_pudQ#",
+      category: "AI/ML",
+      certificateImage: JetsonNano
+    },
+
+    {
+      title: "Microsoft Azure AI Fundamentals:Computer Vision",
+      issuer: "Microsoft",
+      date: "2024",
+      logo: AwsLogo,
+      credential: "https://www.linkedin.com/in/hesaraperera/details/certifications/",
+      category: "AI/ML",
+      bgImage: "/img/aws-bg.jpg",
+      certificateImage: GettingStarted
+    },
+
+    {
+      title: "Ethics in the Age of Generative AI",
+      issuer: "LinkedIn Learning",
+      date: "2024",
+      logo: "/coursera-logo.png",
+      credential: "https://learn.nvidia.com/certificates?id=gS5RuS08SMaEGj9xj_pudQ#",
+      category: "AI/ML",
+      certificateImage: JetsonNano
+    },
+
+    {
+      title: "Introduction to Artificial Intelligence",
+      issuer: "LinkedIn Learning",
+      date: "2024",
+      logo: "/coursera-logo.png",
+      credential: "https://learn.nvidia.com/certificates?id=gS5RuS08SMaEGj9xj_pudQ#",
+      category: "AI/ML",
+      certificateImage: JetsonNano
+    },
+
+
   ];
 
   const filteredCerts = certifications.filter(cert => {
@@ -313,13 +432,25 @@ const CertificationsPage = () => {
                     </div>
                     <button
                       onClick={() => setSelectedCert(cert)}
-                      className="mt-4 px-4 py-2 bg-purple-500 hover:bg-purple-600 
+                      className="relative mt-4 px-6 py-3 bg-gradient-to-r from-purple-500 to-blue-500 
                         rounded-lg flex items-center justify-center space-x-2 
-                        opacity-70 hover:opacity-100 transform hover:scale-105
-                        transition-all duration-300"
+                        group overflow-hidden shadow-lg hover:shadow-purple-500/25
+                        transition-all duration-300 hover:-translate-y-0.5"
                     >
-                      <span>View Certificate</span>
-                      <ExternalLink className="w-4 h-4" />
+                      {/* Button Glow Effect */}
+                      <div className="absolute inset-0 bg-gradient-to-r from-purple-600 to-blue-600 
+                        opacity-0 group-hover:opacity-100 blur transition-opacity duration-300" />
+                      
+                      {/* Button Content */}
+                      <div className="relative z-10 flex items-center space-x-2">
+                        <span className="text-white font-medium">View Certificate</span>
+                        <ExternalLink className="w-4 h-4 text-white transform 
+                          group-hover:rotate-12 transition-transform duration-300" />
+                      </div>
+                      
+                      {/* Border Glow */}
+                      <div className="absolute -inset-0.5 bg-gradient-to-r from-purple-500 to-blue-500 
+                        rounded-lg opacity-0 group-hover:opacity-30 blur transition-opacity duration-300" />
                     </button>
                   </div>
                 </motion.div>
