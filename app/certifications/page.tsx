@@ -7,7 +7,7 @@ import Navbar from '../../components/Navbar';
 import Footer from '../../components/Footer';
 import Image from 'next/image';
 import MetaLogo from '../../img/meta-logo.png';
-import AwsLogo from '../../img/aws-logo.svg';
+import AwsLogo from '../../img/aws-logo.png';
 import GoogleLogo from '../../img/google-logo.png';
 import Cloud101 from '../../img/Certificates/Cloud/Cloud101.png';
 import ArchitectRol from '../../img/Certificates/Cloud/Architect Rol.png';
@@ -45,6 +45,17 @@ import pbiDs from '../../img/Certificates/Data Science/pbi-ds.png';
 import hrLogo from '../../img/hr-logo.png';
 import hrJava from '../../img/Certificates/Development/hr-java.png';
 import msSd from '../../img/Certificates/Development/ms-sd.png';
+import uomLogo from '../../img/uom-logo.png';
+import uomPg from '../../img/Certificates/Development/uom-pg.png';
+import postmanLogo from '../../img/postman-logo.png';
+import pmSx from '../../img/Certificates/Development/pm-sx.png';
+import msUX from '../../img/Certificates/Design/ms-ux.png';
+import fcLogo from '../../img/fc-logo.png';
+import fcRd from '../../img/Certificates/Design/fc-rd.png';
+import hpPm from '../../img/Certificates/Other/hp-pm.png';
+import lcIpc from '../../img/lc-ipc.png';
+import lcVr from '../../img/Certificates/Other/lc-vr.png';
+import lcPc from '../../img/Certificates/Other/lc-pc.png';
 
 interface Cert {
   title: string;
@@ -372,15 +383,84 @@ const CertificationsPage = () => {
     },
 
     {
-      title: "Java(Basic) Certificate",
+      title: "Python for Beginners",
+      issuer: "University of Moratuwa",
+      date: "2024",
+      logo: uomLogo,
+      credential: "https://open.uom.lk/lms/mod/customcert/verify_certificate.php",
+      category: "Development",
+      certificateImage: uomPg,
+    },
+
+    {
+      title: "Postman Student Expert",
+      issuer: "Postman",
+      date: "2024",
+      logo: postmanLogo,
+      credential: "https://api.badgr.io/public/assertions/AKwPbMowSae4QxsthkbUjA",
+      category: "Development",
+      certificateImage: pmSx,
+    },
+
+    {
+      title: "Microsoft UX Design Professional Certificate",
+      issuer: "Microsoft",
+      date: "2024",
+      logo: Microsoft,
+      credential: "https://www.coursera.org/account/accomplishments/professional-cert/FDPT7VJI71TJ?utm_source=link&utm_medium=certificate&utm_content=cert_image&utm_campaign=sharing_cta&utm_product=prof",
+      category: "Design",
+      certificateImage: msUX,
+    },
+
+    {
+      title: "Responsive Web Design",
+      issuer: "freeCodeCamp",
+      date: "2024",
+      logo: fcLogo,
+      credential: "https://www.freecodecamp.org/certification/HesaraPerera/responsive-web-design",
+      category: "Design",
+      certificateImage: fcRd,
+    },
+
+    {
+      title: "Java (Basic) Certificate",
       issuer: "Hackerrank",
       date: "2024",
       logo: hrLogo,
-      credential: "https://www.hackerrank.com/certificates/3070f131e4c6",
+      credential: "https://www.freecodecamp.org/certification/HesaraPerera/responsive-web-design",
       category: "Development",
       certificateImage: hrJava,
     },
+
+    {
+      title: "Agile Project Management",
+      issuer: "HP",
+      date: "2025",
+      logo: hpLogo,
+      credential: "https://www.life-global.org/certificate/d21556ac-e645-4692-bfdc-912f3c796858",
+      category: "Other",
+      certificateImage: hpPm,
+    },
     
+    {
+      title: "Introduction to Physical Computing",
+      issuer: "Lancaster University",
+      date: "2024",
+      logo: lcIpc,
+      credential: "https://www.futurelearn.com/certificates/3glkfhu",
+      category: "Other",
+      certificateImage: lcPc,
+    },
+
+    {
+      title: "Introduction to Virtual, Augmented and Mixed Reality",
+      issuer: "Lancaster University",
+      date: "2024",
+      logo: lcIpc,
+      credential: "https://www.futurelearn.com/certificates/90q9dwk",
+      category: "Other",
+      certificateImage: lcVr,
+    },
   ];
 
   const filteredCerts = certifications.filter(cert => {
