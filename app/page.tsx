@@ -207,18 +207,18 @@ const Home: React.FC = () => {
               </motion.div>
 
               {/* Main Heading */}
-              <motion.div variants={fadeInUp} className="space-y-4 animate-fade-in">
-                <p className="text-blue-400 font-medium tracking-wide uppercase text-sm">
+              <motion.div variants={fadeInUp} className="space-y-6 animate-fade-in text-center px-4 sm:px-6 md:px-8 animate-fade-in">
+                <p className="text-blue-400 font-semibold tracking-wider uppercase text-xs sm:text-sm md:text-base">
                   <TypewriterText text="Welcome to my portfolio" delay={100} />
                 </p>
-                <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold leading-tight">
+                <h1 className="text-3xl sm:text-5xl md:text-xl lg:text-7xl font-extrabold leading-tight">
                   <span className="bg-gradient-to-r from-blue-400 via-purple-400 to-teal-400 bg-clip-text text-transparent animate-gradient">
                     <TypewriterText text="Hello! I'm Hesara" delay={100} />
                   </span>
                 </h1>
                 <motion.p 
                   variants={fadeInUp}
-                  className="text-xl md:text-2xl text-gray-300 max-w-2xl mx-auto font-light"
+                  className="text-basesm:text-lg  md:text-xl text-gray-300 max-w-2xl mx-auto font-light leading-relaxed"
                 >
                   <TypewriterText text="Crafting digital experiences with code & creativity" delay={100} />
                 </motion.p>
