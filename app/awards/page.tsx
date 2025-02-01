@@ -5,7 +5,7 @@ import { Award, Trophy, Medal, Star, ExternalLink, Zap, Smartphone } from 'lucid
 import { motion } from 'framer-motion';
 import Navbar from '../../components/Navbar';
 import Footer from '../../components/Footer';
-import xtreme from '../../img/xtreme.png'
+import xtreme from '../../public/img/xtreme.png'
 const awards = [
   {
     title: "5th Place Winner",

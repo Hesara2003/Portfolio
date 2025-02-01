@@ -8,7 +8,7 @@ import { ArrowDown, Code, Palette, Mail, Github, Linkedin, Twitter, ExternalLink
 import TypewriterText from '../components/Typewriter';
 import Confetti from '../components/Confetti';
 import Image from 'next/image';
-import myImage from '../img/myPhoro.png';
+import myImage from '../public/img/myPhoro.png';
 import LoadingScreen from '../components/LoadingScreen';
 import Link from 'next/link';
 
