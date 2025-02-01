@@ -211,7 +211,7 @@ const Home: React.FC = () => {
                 <p className="text-blue-400 font-medium tracking-wide uppercase text-sm">
                   <TypewriterText text="Welcome to my portfolio" delay={100} />
                 </p>
-                <h1 className="text-6xl md:text-8xl font-bold leading-tight">
+                <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold leading-tight">
                   <span className="bg-gradient-to-r from-blue-400 via-purple-400 to-teal-400 bg-clip-text text-transparent animate-gradient">
                     <TypewriterText text="Hello! I'm Hesara" delay={100} />
                   </span>
