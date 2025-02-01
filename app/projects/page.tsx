@@ -10,35 +10,67 @@ import { JSX } from 'react';
 
 const projects = [
   {
-    title: "Next-Gen Web",
-    description: "A modern web application built with Next.js and Tailwind CSS, featuring responsive design and optimized performance.",
+    title: "DesignFusion Studio",
+    description: "A modern website for my graphic design projects, built with Next.js, Tailwind CSS.",
     tags: ["Next.js", "Tailwind CSS", "React", "TypeScript"],
     icon: <Globe className="w-6 h-6 text-blue-400" />,
-    link: "https://next-gen-web.com",
-    github: "https://github.com/username/next-gen-web",
+    link: "https://www.designfusion.studio/",
+    github: "https://github.com/Hesara2003/Graphic-Design-Portfolio",
     features: [
-      "Responsive Design",
-      "SEO Optimized",
-      "Fast Performance",
-      "Modern UI/UX"
+      "Modern Design",
+      "Responsive Layout",
+      "Custom Animations",
+      "SEO Optimized"
     ],
     bgImage: "/img/graphic-design.png"
   },
   {
-    title: "Portfolio",
-    description: "A personal portfolio website showcasing my projects and skills, built with modern web technologies.",
-    tags: ["Next.js", "Tailwind CSS", "Framer Motion", "TypeScript"],
+    title: "Nex-Gen Animated Website",
+    description: "Build and Deploy an Sleek, Responsive, and Animated Website",
+    tags: ["Next.js", "Tailwind CSS", "Framer Motion", "TypeScript", "GSAP"],
     icon: <Palette className="w-6 h-6 text-pink-400" />,
-    link: "https://portfolio.com",
-    github: "https://github.com/username/Portfolio",
+    link: "https://animated-website-7cf87.web.app/",
+    github: "https://github.com/Hesara2003/Animated-Website",
     features: [
       "Interactive Animations",
       "Dark Mode",
       "Custom Design",
       "Responsive Layout"
     ],
-    bgImage: "/projects/portfolio.png"
-  }
+    bgImage: "/img/next-gen.png"
+  },
+
+  {
+    title: "GunTracker",
+    description: "Developed a real-time weapon detection system using Python and OpenCV",
+    tags: ["Python", "OpenCV", "Machine Learning", "Computer Vision"],
+    icon: <Palette className="w-6 h-6 text-pink-400" />,
+    link: "https://www.linkedin.com/in/hesaraperera/details/projects/",
+    github: "https://github.com/Hesara2003/Gun-tracker",
+    features: [
+      "Real-time Detection",
+      "Machine Learning",
+      "OpenCV Integration",
+      "Custom Design"
+    ],
+    bgImage: "/img/gun-tracker.png"
+  },
+
+  {
+    title: "Landmine Detection Systemr",
+    description: "As part of my Year 1, Semester 1 project, I developed a basic landmine detection system using a Arduino and magnetic sensor to detect metallic landmines",
+    tags: ["Arduino", "C", "Electronics", "Sensors"],
+    icon: <Palette className="w-6 h-6 text-pink-400" />,
+    link: "https://www.linkedin.com/in/hesaraperera/details/projects/",
+    github: "https://www.linkedin.com/in/hesaraperera/details/projects/",
+    features: [
+      "Landmine Detection",
+      "Sensor Integration",
+      "Custom Design",
+      "Electronics"
+    ],
+    bgImage: "/img/Land Mine.png"
+  },
 ];
 
 // SVG Pattern for the grid
@@ -106,7 +138,7 @@ const ProjectCard = ({ project, index }: { project: Project; index: number }) =>
           src={project.bgImage}
           alt={`${project.title} background`}
           fill
-          className="object-cover object-center opacity-10 group-hover:opacity-20 transition-opacity duration-300 transform group-hover:scale-105"
+          className="object-cover object-center opacity-5 group-hover:opacity-20 transition-opacity duration-300 transform group-hover:scale-105"
           quality={75}
           priority={index === 0}
         />
@@ -202,8 +234,9 @@ const TechStackSection = () => {
         { name: "Node.js", level: 85 },
         { name: "Express", level: 80 },
         { name: "MongoDB", level: 75 },
-        { name: "PostgreSQL", level: 70 },
-        { name: "Firebase", level: 85 }
+        { name: "MySQL", level: 70 },
+        { name: "Firebase", level: 85 },
+        { name: "Vercel", level: 90}
       ]
     },
     {
