@@ -89,6 +89,8 @@ const ProjectCard = ({ project, index }: { project: Project; index: number }) =>
     }
   };
 
+  
+
   return (
     <motion.div
       variants={cardVariants}
@@ -180,6 +182,121 @@ const ProjectCard = ({ project, index }: { project: Project; index: number }) =>
   );
 };
 
+const TechStackSection = () => {
+  const techCategories = [
+    {
+      title: "Frontend",
+      color: "from-blue-400 to-cyan-400",
+      skills: [
+        { name: "React", level: 90 },
+        { name: "Next.js", level: 85 },
+        { name: "TypeScript", level: 80 },
+        { name: "Tailwind CSS", level: 95 },
+        { name: "Framer Motion", level: 75 }
+      ]
+    },
+    {
+      title: "Backend",
+      color: "from-purple-400 to-pink-400",
+      skills: [
+        { name: "Node.js", level: 85 },
+        { name: "Express", level: 80 },
+        { name: "MongoDB", level: 75 },
+        { name: "PostgreSQL", level: 70 },
+        { name: "Firebase", level: 85 }
+      ]
+    },
+    {
+      title: "Tools & Others",
+      color: "from-emerald-400 to-teal-400",
+      skills: [
+        { name: "Git", level: 90 },
+        { name: "GitHub", level: 85 },
+        { name: "VS Code", level: 95 },
+        { name: "Figma", level: 70 },
+        { name: "Docker", level: 80 }
+      ]
+    }
+  ];
+
+  return (
+    <section className="py-20 relative overflow-hidden">
+      <motion.h2 
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        className="text-4xl md:text-5xl font-bold text-center mb-16"
+      >
+        <span className="bg-gradient-to-r from-purple-400 to-pink-600 text-transparent bg-clip-text">
+          Tech Stack
+        </span>
+      </motion.h2>
+
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-7xl mx-auto px-4">
+        {techCategories.map((category, idx) => (
+          <motion.div
+            key={category.title}
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ delay: idx * 0.2 }}
+            className="group relative"
+          >
+            {/* Card Background with Gradient Border */}
+            <div className="absolute inset-0 bg-gradient-to-r rounded-2xl opacity-50 group-hover:opacity-100 transition-opacity duration-500"
+              style={{ padding: '1px' }}
+            >
+              <div className="absolute inset-0 bg-gray-900 rounded-2xl" />
+            </div>
+
+            {/* Card Content */}
+            <div className="relative bg-gray-800/50 backdrop-blur-xl p-8 rounded-2xl border border-gray-700/50 
+              hover:border-gray-600/50 transition-all duration-500 h-full"
+            >
+              {/* Floating Gradients */}
+              <motion.div
+                animate={{
+                  scale: [1, 1.2, 1],
+                  opacity: [0.2, 0.3, 0.2],
+                }}
+                transition={{ duration: 8, repeat: Infinity }}
+                className={`absolute top-0 right-0 w-32 h-32 bg-gradient-to-r ${category.color} 
+                  rounded-full blur-[32px] opacity-30`}
+              />
+
+              <h3 className="text-2xl font-bold text-white mb-8 relative">
+                {category.title}
+              </h3>
+
+              <div className="space-y-6 relative">
+                {category.skills.map((skill, skillIdx) => (
+                  <motion.div
+                    key={skill.name}
+                    initial={{ opacity: 0, x: -20 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    transition={{ delay: (idx * 0.2) + (skillIdx * 0.1) }}
+                  >
+                    <div className="flex justify-between items-center mb-2">
+                      <span className="text-gray-300 font-medium">{skill.name}</span>
+                      <span className="text-sm text-gray-400">{skill.level}%</span>
+                    </div>
+                    <div className="h-2 bg-gray-700/50 rounded-full overflow-hidden">
+                      <motion.div
+                        initial={{ width: 0 }}
+                        whileInView={{ width: `${skill.level}%` }}
+                        transition={{ duration: 1, delay: (idx * 0.2) + (skillIdx * 0.1) }}
+                        className={`h-full bg-gradient-to-r ${category.color}`}
+                      />
+                    </div>
+                  </motion.div>
+                ))}
+              </div>
+            </div>
+          </motion.div>
+        ))}
+      </div>
+    </section>
+  );
+};
+
 const ProjectsPage = () => {
   return (
     <div className="min-h-screen flex flex-col relative bg-gray-900">
@@ -226,6 +343,7 @@ const ProjectsPage = () => {
             <ProjectCard key={project.title} project={project} index={index} />
           ))}
         </div>
+        <TechStackSection />
       </main>
       
       <div className="flex-grow" />
